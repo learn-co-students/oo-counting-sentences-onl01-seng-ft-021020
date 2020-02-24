@@ -32,29 +32,33 @@ class String
 
   end
 
-  def count_sentences
+  def count_sentences()
+    array1 = Array.new
     array2 = Array.new
-    #array1 = Array.new
-    #self.chars {|x| array1 << x }
-
+   self.chars {|x| array1 << x }
     count = 0
     sen_end = 0
 
-    array2 << self.split()
-    return array2
-    binding.pry
+    array2 = self.split()
+    array2
 
     while count != array2.length
       array2_index = array2[count]
-      array2_index..end_with?(".")
-        sen_end += 1
-      array2_index..end_with?("!")
-        sen_end += 1
-      array2[count]..end_with?("?")
-        sen_end += 1
+      
+       if
+        array2_index.end_with?(".")
+          sen_end += 1
+       elsif
+        array2_index.end_with?("!")
+          sen_end += 1
+       elsif
+        array2_index.end_with?("?")
+          sen_end += 1
+       #else
+        #sen_end = 0
+       end
       count += 1
     end
-    return sen_end
-
-  end
+  return sen_end   
+  end  
 end
