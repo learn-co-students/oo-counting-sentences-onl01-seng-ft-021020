@@ -1,20 +1,24 @@
-require 'pry'
-
-class String
-
+class String 
+  
   def sentence?
-    
-  end
-
+    self.end_with?(".")
+  end 
+  
   def question?
-
-  end
-
+    self.end_with?("?")
+  end 
+  
   def exclamation?
-
-  end
-
+    self.end_with?("!")
+  end 
+  
   def count_sentences
-
-  end
-end
+    sentence = self.split(/[.!?]/)
+    sentence.delete_if do |word_space|
+      word_space.empty?
+    end 
+    sentence.count 
+  end 
+  
+  
+end 
